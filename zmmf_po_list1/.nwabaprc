@@ -1,0 +1,11 @@
+{
+    "base": "./dist",
+    "conn_usestrictssl" : false,
+    "conn_server": "http://rmsapmfs.gruppoangelini.intranet:8000/",
+    "conn_client" : "222",
+    "conn_user": "SVIL3",
+    "conn_password": "angelinimfs1",
+    "abap_package": "$TMP",
+    "abap_bsp": "ZMMF_PO_LISTx",
+    "abap_bsp_text": "Monitor Oda"
+}

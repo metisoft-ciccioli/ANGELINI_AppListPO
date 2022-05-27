@@ -1,0 +1,435 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZMMF_PO_LIST_SRV/$metadata">
+        <edmx:Include Namespace="ZMMF_PO_LIST_SRV" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="ZMMF_PO_LIST_SRV.ZMMF_GET_POS">
+                <Annotation Term="UI.LineItem"  >
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Ebeln"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Ebelp"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Menge"/>
+                            <PropertyValue Property="Label" String="{@i18n>orderQuantity}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mglief"/>
+                            <PropertyValue Property="Label" String="{@i18n>openQuantity}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Entryqnt"/>
+                            <PropertyValue Property="Label" String="{@i18n>quantit}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Ematn"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Txz01"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Peinh"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Waers"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Bednr"/>
+                            <PropertyValue Property="Label" String="{@i18n>coge}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SgtScat"/>
+                            <PropertyValue Property="Label" String="{@i18n>cdc}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SgtRcat"/>
+                            <PropertyValue Property="Label" String="{@i18n>wbsElement}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Txjcd"/>
+                            <PropertyValue Property="Label" String="{@i18n>order}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Wtinv"/>
+                            <PropertyValue Property="Label" String="{@i18n>TestoWtinv}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Mginv"/>
+                            <PropertyValue Property="Label" String="{@i18n>TestoMginv}"/>
+                        </Record>                            
+                    </Collection>
+                </Annotation >
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList">
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{@i18n>ordineDiAcquisto}" />
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>ordineDiAcquisto}" />
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Ebeln" />
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField" >
+                                <PropertyValue Property="Value" Path="Superfield"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification" >                
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Refdocno"/>
+                            <PropertyValue Property="Label" String="{@i18n>bollaDiConsegna}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Pstngdate"/>
+                            <PropertyValue Property="Label" String="{@i18n>dataDiRegistrazione}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Docdate"/>
+                            <PropertyValue Property="Label" String="{@i18n>dataDocumento}"/>                                
+                        </Record>                           
+                    </Collection>            
+                </Annotation>
+
+                <Annotation Term="UI.Facets" >
+                    <Collection >
+                        <Record Type="UI.CollectionFacet" >
+                            <PropertyValue Property="Facets" >
+                                <Collection >
+                                    <Record Type="UI.ReferenceFacet" >
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+                                        <PropertyValue Property="Label" String="{@i18n>TestoQty}"/>
+                                    </Record>
+                                </Collection>
+                           </PropertyValue>                           
+                           <PropertyValue Property="Label" String="{@i18n>datiEntrataMerci}"/>       
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="to_ZMMF_GET_POSSet/@UI.LineItem"/>
+                            <PropertyValue Property="Label" String="{@i18n>posizioniOda}" />
+                        </Record>                                             
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.SelectionVariant" Qualifier="FilterDefaults">
+                    <Record>
+                        <PropertyValue Property="SelectOptions">
+                            <Collection>
+                                <Record Type="UI.SelectOptionType">
+                                    <PropertyValue Property="PropertyName" PropertyPath="Ekorg" />
+                                    <PropertyValue Property="Ranges">
+                                        <Collection>
+                                            <Record Type="UI.SelectionRangeType">
+                                                <PropertyValue EnumMember="UI.SelectionRangeSignType/I" Property="Sign" />
+                                                <PropertyValue EnumMember="UI.SelectionRangeOptionType/EQ" Property="Option" />
+                                                <PropertyValue Property="Low" String="OCPO" />
+                                            </Record>
+                                        </Collection>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.SelectOptionType">
+                                    <PropertyValue Property="PropertyName" PropertyPath="Bsart" />
+                                    <PropertyValue Property="Ranges">
+                                        <Collection>
+                                            <Record Type="UI.SelectionRangeType">
+                                                <PropertyValue EnumMember="UI.SelectionRangeSignType/I" Property="Sign" />
+                                                <PropertyValue EnumMember="UI.SelectionRangeOptionType/EQ" Property="Option" />
+                                                <PropertyValue Property="Low" String="ZNBJ" />
+                                            </Record>
+                                        </Collection>
+                                    </PropertyValue>
+                                </Record>
+                                <Record Type="UI.SelectOptionType">
+                                    <PropertyValue Property="PropertyName" PropertyPath="Listu" />
+                                    <PropertyValue Property="Ranges">
+                                        <Collection>
+                                            <Record Type="UI.SelectionRangeType">
+                                                <PropertyValue EnumMember="UI.SelectionRangeSignType/I" Property="Sign" />
+                                                <PropertyValue EnumMember="UI.SelectionRangeOptionType/EQ" Property="Option" />
+                                                <PropertyValue Property="Low" String="BEST" />
+                                            </Record>
+                                        </Collection>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ZStatus"/>
+                            <PropertyValue Property="Criticality" Path="Criticality"/>
+                        </Record>
+                        
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList/Ekorg" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>purchasingOrg}" />
+                        <PropertyValue Property="CollectionPath" String="ZMMF_IS_EKORGSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Ekorg" />
+                                    <PropertyValue Property="ValueListProperty" String="Ekorg" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Ekotx" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList/Ekgrp" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>purchGroup}" />
+                        <PropertyValue Property="CollectionPath" String="ZMMF_IS_EKGRPSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Ekgrp" />
+                                    <PropertyValue Property="ValueListProperty" String="Ekgrp" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Eknam" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList/Bsart" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>tipoDocumento}" />
+                        <PropertyValue Property="CollectionPath" String="ZMMF_IS_BSARTSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Bsart" />
+                                    <PropertyValue Property="ValueListProperty" String="Zkey" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zdescription" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList/Lifnr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>fornitore}" />
+                        <PropertyValue Property="CollectionPath" String="ZMMF_IS_LIFNRSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Lifnr" />
+                                    <PropertyValue Property="ValueListProperty" String="Zkey" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zdescription" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList/Matkl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>gruppoMateriale}" />
+                        <PropertyValue Property="CollectionPath" String="ZMMF_IS_MATKLSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Matkl" />
+                                    <PropertyValue Property="ValueListProperty" String="Zkey" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zdescription" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZMMF_PO_LIST_SRV.GetList/Ematn" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n>numeroMateriale}" />
+                        <PropertyValue Property="CollectionPath" String="ZMMF_IS_MATNRSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Ematn" />
+                                    <PropertyValue Property="ValueListProperty" String="Zkey" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Zdescription" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_PO_LIST_SRV_Entities/zmmfConf/RefDocNo">
+                <Annotation String="{@i18n>bollaDiConsegna}" Term="Common.Label" />
+                <Annotation String="{@i18n>bollaDiConsegna}" Term="Common.Heading" />
+                <Annotation String="{@i18n>bollaDiConsegna}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_PO_LIST_SRV_Entities/zmmfConf/DocDate">
+                <Annotation String="{@i18n>dataDocumento}" Term="Common.Label" />
+                <Annotation String="{@i18n>dataDocumento}" Term="Common.Heading" />
+                <Annotation String="{@i18n>dataDocumento}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_PO_LIST_SRV_Entities/zmmfConf/PstngDate">
+                <Annotation String="{@i18n>dataDiRegistrazione}" Term="Common.Label" />
+                <Annotation String="{@i18n>dataDiRegistrazione}" Term="Common.Heading" />
+                <Annotation String="{@i18n>dataDiRegistrazione}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_PO_LIST_SRV_Entities/zmmfConf/EntryQnt">
+                <Annotation String="{@i18n>quantit}" Term="Common.Label" />
+                <Annotation String="{@i18n>quantit}" Term="Common.Heading" />
+                <Annotation String="{@i18n>quantit}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_PO_LIST_SRV_Entities/zmmfConf/Withdrawn">
+                <Annotation String="{@i18n>consegnaFinale}" Term="Common.Label" />
+                <Annotation String="{@i18n>consegnaFinale}" Term="Common.Heading" />
+                <Annotation String="{@i18n>consegnaFinale}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Docdate">
+                <Annotation String="{@i18n>dataDocumento}" Term="Common.Label" />
+                <Annotation String="{@i18n>dataDocumento}" Term="Common.Heading" />
+                <Annotation String="{@i18n>dataDocumento}" Term="Common.QuickInfo" />
+            </Annotations>
+
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Mglief">
+                <Annotation String="{@i18n>openQuantity}" Term="Common.Label" />
+                <Annotation String="{@i18n>openQuantity}" Term="Common.Heading" />
+                <Annotation String="{@i18n>openQuantity}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Bednr">
+                <Annotation String="{@i18n>coge}" Term="Common.Label" />
+                <Annotation String="{@i18n>coge}" Term="Common.Heading" />
+                <Annotation String="{@i18n>coge}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/SgtScat">
+                <Annotation String="{@i18n>cdc}" Term="Common.Label" />
+                <Annotation String="{@i18n>cdc}" Term="Common.Heading" />
+                <Annotation String="{@i18n>cdc}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/SgtRcat">
+                <Annotation String="{@i18n>wbsElement}" Term="Common.Label" />
+                <Annotation String="{@i18n>wbsElement}" Term="Common.Heading" />
+                <Annotation String="{@i18n>wbsElement}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Txjcd">
+                <Annotation String="{@i18n>order}" Term="Common.Label" />
+                <Annotation String="{@i18n>order}" Term="Common.Heading" />
+                <Annotation String="{@i18n>order}" Term="Common.QuickInfo" />
+            </Annotations>
+
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Pstngdate">
+                <Annotation String="{@i18n>dataDiRegistrazione}" Term="Common.Label" />
+                <Annotation String="{@i18n>dataDiRegistrazione}" Term="Common.Heading" />
+                <Annotation String="{@i18n>dataDiRegistrazione}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Entryqnt">
+                <Annotation String="{@i18n>quantit}" Term="Common.Label" />
+                <Annotation String="{@i18n>quantit}" Term="Common.Heading" />
+                <Annotation String="{@i18n>quantit}" Term="Common.QuickInfo" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_IS_BSART/Zkey">
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.Label" />
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.Heading" />
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_IS_LIFNR/Zkey">
+                <Annotation String="{@i18n>fornitore}" Term="Common.Label" />
+                <Annotation String="{@i18n>fornitore}" Term="Common.Heading" />
+                <Annotation String="{@i18n>fornitore}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>fornitore}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_IS_MATNR/Zkey">
+                <Annotation String="{@i18n>materiale}" Term="Common.Label" />
+                <Annotation String="{@i18n>materiale}" Term="Common.Heading" />
+                <Annotation String="{@i18n>materiale}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>materiale}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.ZMMF_IS_MATKL/Zkey">
+                <Annotation String="{@i18n>gruppoMat}" Term="Common.Label" />
+                <Annotation String="{@i18n>gruppoMat}" Term="Common.Heading" />
+                <Annotation String="{@i18n>gruppoMat}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>gruppoMat}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Superfield">
+                <Annotation String="{@i18n>vendor}" Term="Common.Label" />
+                <Annotation String="{@i18n>vendor}" Term="Common.Heading" />
+                <Annotation String="{@i18n>vendor}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>vendor}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Listu">
+                <Annotation String="{@i18n>Contenutolista}" Term="Common.Label" />
+                <Annotation String="{@i18n>Contenutolista}" Term="Common.Heading" />
+                <Annotation String="{@i18n>Contenutolista}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>Contenutolista}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Bsart">
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.Label" />
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.Heading" />
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>tipoDocumento}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Bedat">
+                <Annotation String="{@i18n>dataConsegna}" Term="Common.Label" />
+                <Annotation String="{@i18n>dataConsegna}" Term="Common.Heading" />
+                <Annotation String="{@i18n>dataConsegna}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>dataConsegna}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Menge">
+                <Annotation String="{@i18n>qtOrdineAcquisto}" Term="Common.Label" />
+                <Annotation String="{@i18n>qtOrdineAcquisto}" Term="Common.Heading" />
+                <Annotation String="{@i18n>qtOrdineAcquisto}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>qtOrdineAcquisto}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Netpr">
+                <Annotation String="{@i18n>prezzoNetto}" Term="Common.Label" />
+                <Annotation String="{@i18n>prezzoNetto}" Term="Common.Heading" />
+                <Annotation String="{@i18n>prezzoNetto}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>prezzoNetto}" Term="Common.Text" />
+            </Annotations>
+            <Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZMMF_PO_LIST_SRV.GetList/Netwr">
+                <Annotation String="{@i18n>valoreNettoOrdineAcquisto}" Term="Common.Label" />
+                <Annotation String="{@i18n>valoreNettoOrdineAcquisto}" Term="Common.Heading" />
+                <Annotation String="{@i18n>valoreNettoOrdineAcquisto}" Term="Common.QuickInfo" />
+                <Annotation String="{@i18n>valoreNettoOrdineAcquisto}" Term="Common.Text" />
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
